@@ -6,6 +6,8 @@ date_default_timezone_set('America/Toronto');
 
 require_once BASEPATH.'/vendor/autoload.php';
 
+use MyApp\Security\UserProvider;
+
 // Dotenv is a library that reads the `.env` file
 // to set environment variables. Those variables can
 // also be defined by the server.
@@ -68,6 +70,19 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
         'url' => 'sqlite:///'.BASEPATH.'/data.db',
     ],
 ]);
+
+$app['security.firewalls'] = array(
+    'login' => array(
+        'pattern' => '^/login$',
+    ),
+    'secured' => array(
+        'pattern' => '^.*$',
+        'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+        'users' => function () use ($app) {
+            return new UserProvider($app['db']);
+        }
+    ),
+);
 
 // We mount the default contorller.
 // You can add more controllers here

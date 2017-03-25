@@ -9,7 +9,10 @@
         "twig/twig": "^1.26",
         "symfony/asset": "^3.1",
         "symfony/twig-bridge": "^3.1",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "jdesrosiers/silex-cors-provider": "~1.0",
+        "symfony/security": "^3.2",
+        "symfony/console": "^3.2"
     },
     "autoload": {
         "psr-0": { "": "src/" }
