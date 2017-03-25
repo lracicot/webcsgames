@@ -8,7 +8,8 @@
         "vlucas/phpdotenv": "^2.4",
         "twig/twig": "^1.26",
         "symfony/asset": "^3.1",
-        "symfony/twig-bridge": "^3.1"
+        "symfony/twig-bridge": "^3.1",
+        "doctrine/dbal": "^2.5"
     },
     "autoload": {
         "psr-0": { "": "src/" }

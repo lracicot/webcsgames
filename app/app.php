@@ -2,6 +2,8 @@
 
 define('BASEPATH', dirname(__DIR__));
 
+date_default_timezone_set('America/Toronto');
+
 require_once BASEPATH.'/vendor/autoload.php';
 
 // Dotenv is a library that reads the `.env` file
@@ -61,18 +63,11 @@ $app['absolute_url'] = function () {
     return $base_url.$_ENV['BASEURI'];
 };
 
-
-/**
- * Uncomment this if you use doctrine, or delete it.
- */
-// $app->register(new Silex\Provider\DoctrineServiceProvider(), [
-//     'db.options' => [
-//         'driver'   => 'pdo_mysql',
-//         'user'     => $_ENV['DB_USER'],
-//         'password' => $_ENV['DB_PASS'],
-//         'dbname'   => $_ENV['DB_NAME'],
-//     ],
-// ]);
+$app->register(new Silex\Provider\DoctrineServiceProvider(), [
+    'db.options' => [
+        'url' => 'sqlite:///'.BASEPATH.'/data.db',
+    ],
+]);
 
 // We mount the default contorller.
 // You can add more controllers here
