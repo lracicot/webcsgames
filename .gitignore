@@ -11,3 +11,6 @@
 
 # Composer PHAR
 /composer.phar
+
+.idea
+npm-debug.log

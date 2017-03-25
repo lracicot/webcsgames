@@ -17,6 +17,17 @@ body {
   background-color: #f5f5f5;
 }
 
+.login-form {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+}
+
+.register-form {
+  display: table-cell;
+  vertical-align: middle;
+  height: 50px;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */

@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # webcsgames
-=======
 # Silex Template
 
 This Silex template has been written to shorten the setup process of a new Silex Application.
@@ -76,4 +74,3 @@ A doctrine ORM service provider
 ```
 composer require dflydev/doctrine-orm-service-provider
 ```
->>>>>>> initial commit
