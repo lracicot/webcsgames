@@ -1,0 +1,30 @@
+{
+    "name": "lracicot/silex-template",
+    "description": "A small silex template for scalable web application",
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "silex/silex": "~2.0",
+        "monolog/monolog": "^1.21",
+        "vlucas/phpdotenv": "^2.4",
+        "twig/twig": "^1.26",
+        "symfony/asset": "^3.1",
+        "symfony/twig-bridge": "^3.1"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "scripts": {
+        "run": [
+            "echo 'Started web server on http://localhost:8000'",
+            "php -S localhost:8000 -t web"
+        ],
+        "test": [
+            "phpunit"
+        ]
+    },
+    "require-dev": {
+        "symfony/browser-kit": "^3.2",
+        "symfony/css-selector": "^3.2",
+        "phpunit/phpunit": "^5.4"
+    }
+}

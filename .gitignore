@@ -1,0 +1,13 @@
+# Parameters
+.env
+
+# Cache, session files and logs
+/var/logs/*
+!var/logs/.gitkeep
+/var/cache/*
+
+# Managed by Composer
+/vendor/
+
+# Composer PHAR
+/composer.phar
