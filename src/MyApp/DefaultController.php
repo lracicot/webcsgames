@@ -2,6 +2,7 @@
 namespace MyApp;
 
 use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 use Silex\Api\ControllerProviderInterface;
 
 class DefaultController implements ControllerProviderInterface
@@ -11,9 +12,19 @@ class DefaultController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/', function (Application $app) {
-            return $app['twig']->render('index.html.twig', [
-                'foo' => 'bar'
-            ]);
+
+            return $app['twig']->render('index.html.twig', array(
+                'error'         => $app['security.last_error']($request),
+                'last_username' => $app['session']->get('_security.last_username'),
+            ));
+        });
+
+        $controllers->get('/login', function (Application $app, Request $request) {
+
+            return $app['twig']->render('index.html.twig', array(
+                'error'         => $app['security.last_error']($request),
+                'last_username' => $app['session']->get('_security.last_username'),
+            ));
         });
 
         $controllers->get('/main', function (Application $app) {

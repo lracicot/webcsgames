@@ -73,22 +73,29 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
 ]);
 
 $app['security.default_encoder'] = function ($app) {
-    // Plain text (e.g. for debugging)
     return new PlaintextPasswordEncoder();
 };
 
-$app['security.firewalls'] = array(
-    'login' => array(
-        'pattern' => '^/login$',
-    ),
-    'secured' => array(
-        'pattern' => '^.*$',
-        'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
-        'users' => function () use ($app) {
-            return new UserProvider($app['db']);
-        }
-    ),
-);
+$app['security.encoder_factory'] = function ($app) {
+    return new PlaintextPasswordEncoder();
+};
+
+$app->register(new Silex\Provider\SessionServiceProvider());
+
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'login' => array(
+            'pattern' => '^/login$',
+        ),
+        'secured' => array(
+            'pattern' => '^.*$',
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+            'users' => function () use ($app) {
+                return new UserProvider($app['db']);
+            }
+        ),
+    )
+));
 
 // We mount the default contorller.
 // You can add more controllers here

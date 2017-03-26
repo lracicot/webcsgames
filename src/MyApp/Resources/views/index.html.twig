@@ -4,11 +4,11 @@
 <div class="page-header">
   <h1>Welcome to NewTube!</h1>
 </div>
-
-<form class="login-form" action="/login">
-  <input type="text" placeholder="User name" name="uname">
-  <input type="text" placeholder="Password" name="pass">
-  <input type="submit" value="Log in">
+<form  class="login-form" action="{{ path('login_check') }}" method="post">
+    {{ error }}
+    <input type="text" name="_username" value="{{ last_username }}" />
+    <input type="password" placeholder="User name" name="_password" value="" />
+    <input type="submit" placeholder="Password"  value="Log in" />
 </form>
 
 <div class="row">
