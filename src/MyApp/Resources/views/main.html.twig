@@ -2,11 +2,17 @@
 
 {% block body %}
 
-    <div class="topnav" id="myTopnav">
-        <form class="search" action="search">
-            <input type="text" placeholder="User name" name="uname">
 
+
+    <div class="topBar">
+        <form class="search" action="search">
+            <input type="text" placeholder="Search" name="search">
+            <input type="submit" value="Go">
         </form>
+        <div class="userName">
+            <span>Welcome {{ username }}</span>
+            <button class="logOut">Log out</button>
+        </div>
     </div>
 
     <div class="page-header">
