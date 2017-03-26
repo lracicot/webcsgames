@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-
-
     <div class="topBar">
         <form class="search" action="search">
             <input type="text" placeholder="Search" name="search">
@@ -18,5 +15,11 @@
     <div class="page-header">
         <h1>Video</h1>
     </div>
+
+    <div class="noVideoMain">
+        <h3>Hey {{ username }} you can search video and we will display them here!</h3>
+    </div>
+
+    <input type="text" placeholder="type something ..." id="suggest" />
 
 {% endblock %}

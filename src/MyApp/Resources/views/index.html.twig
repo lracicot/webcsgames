@@ -6,9 +6,9 @@
 </div>
 <form  class="login-form" action="{{ path('login_check') }}" method="post">
     {{ error }}
-    <input type="text" name="_username" value="{{ last_username }}" />
-    <input type="password" placeholder="User name" name="_password" value="" />
-    <input type="submit" placeholder="Password"  value="Log in" />
+    <input type="text" name="_username" placeholder="User name" value="{{ last_username }}" />
+    <input type="password" placeholder="Password" name="_password" value="" />
+    <input type="submit" value="Log in" />
 </form>
 
 <div class="row">
