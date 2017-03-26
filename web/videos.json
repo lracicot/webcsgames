@@ -2,14 +2,14 @@
 	{
 		"title" : "Drone Footage of High Rises in a City", 
 		"description" : "Wow! A drone that flies over a city, that's surreal! ÉTS should buy a drone and make videos with one.", 
-		"url" : "http://localhost:3000/videos/drone.mp4",
+		"url" : "http://localhost:8080/videos/drone.mp4",
 		"thumbnail" : "http://localhost:3000/thumbnails/drone.png",
 		"tags" : ["city", "skyline", "streets", "high rises", "buildings", "aerial", "drone", "footage"]
 	},
 	{
 		"title" : "Master hacker doing his work",
 		"description": "You thought you were a hacker? Look at this guy, typing on multiple screens at the same time.", 
-		"url" : "http://localhost:3000/videos/hackertype.mp4",
+		"url" : "http://localhost:8080/videos/hackertype.mp4",
 		"thumbnail" : "http://localhost:3000/thumbnails/hackertype.png",
 		"tags" : ["matrix", "code", "hacker", "hacking", "terminal", "console", "programming", "program", "coding", "computer", "technology", "pc"]
 	},
@@ -23,14 +23,14 @@
 	{
 		"title" : "Satellite orbiting in SPACE",
 		"description": "Now wait. How did it even get recorded? It doesn't make sense, but here is a video of a satellite orbiting in OUTER SPACE!", 
-		"url" : "http://localhost:3000/videos/satellite.mp4",
+		"url" : "http://localhost:8080/videos/satellite.mp4",
 		"thumbnail" : "http://localhost:3000/thumbnails/satellite.png",
 		"tags" : ["satellite", "outer space", "orbit", "technology", "space"]
 	},
 	{
 		"title" : "Montreal skyline on Mount Royal",
 		"description": "How is that for a view? Pretty good indeed!", 
-		"url" : "http://localhost:3000/videos/montreal.mp4",
+		"url" : "http://localhost:8080/videos/montreal.mp4",
 		"thumbnail" : "http://localhost:3000/thumbnails/montreal.png",
 		"tags" : ["city", "people", "town", "view", "mount royal"]
 	}
