@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="topBar">
+        <form class="search" action="search">
+            <input type="text" placeholder="Search" name="search">
+            <input type="submit" value="Go">
+        </form>
+        <div class="userName">
+            <span>Welcome {{ username }}</span>
+            <a href="/logout" class="btn btn-default" class="logOut">Log out</a>
+            <a href="/profil" class="btn btn-default">Profil</a>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1>Profil</h1>
+        <h2>Username</h2>
+        <p>{{ username }}</p>
+        <h2>Bio</h2>
+        <p>{{ bio }}</p>
+        <h2>Photo</h2>
+        <p><img src="{{ photo }}" alt="" style="max-width: 200px;"></p>
+        <p>
+            <form class="form" action="/upload_picture" method="post">
+                <h3>Nouvelle photo:</h3>
+                <input type="hidden" name="user" value="{{ username }}">
+                <input type="url" placeholder="http://" name="url" value="" required>
+                <input type="submit" class="btn btn-primary" value="Upload">
+            </form>
+        </p>
+        <h2>Messages</h2>
+        <div class="">
+            {% for msg in messages %}
+                <strong>{{ msg.ffrom }}: </strong>
+                {{ msg.message }}<br />
+            {% endfor %}
+        </div>
+        <p>
+            <form class="form" action="/send_message" method="post">
+                <h3>Nouveau message:</h3>
+                <input type="hidden" name="user" value="{{ username }}">
+                <input type="text" placeholder="message" name="msg" value="" required>
+                <input type="text" placeholder="À:" name="username" value="" required>
+                <input type="submit" class="btn btn-primary" value="Send">
+            </form>
+        </p>
+    </div>
+
+{% endblock %}
