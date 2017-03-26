@@ -42,6 +42,8 @@ class CreateSchema extends Command
             $users->addColumn('username', 'string', array('length' => 32));
             $users->addUniqueIndex(array('username'));
             $users->addColumn('password', 'string', array('length' => 255));
+            $users->addColumn('bio', 'string', array('length' => 255, 'notnull' => false));
+            $users->addColumn('picture', 'string', array('length' => 255, 'notnull' => false));
             $users->addColumn('roles', 'string', array('length' => 255));
 
             $schema->createTable($users);
@@ -50,6 +52,35 @@ class CreateSchema extends Command
               'username' => 'admin',
               'password' => 'qwerty',
               'roles' => 'ROLE_ADMIN'
+            ));
+
+            $this->container['db']->insert('users', array(
+              'username' => 'titi',
+              'password' => 'tata',
+              'roles' => 'ROLE_ADMIN'
+            ));
+        }
+
+        if (!$schema->tablesExist('messages')) {
+            $users = new Table('messages');
+            $users->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => true));
+            $users->setPrimaryKey(array('id'));
+            $users->addColumn('ffrom', 'string', array('length' => 32));
+            $users->addColumn('tto', 'string', array('length' => 255));
+            $users->addColumn('message', 'string', array('length' => 255));
+
+            $schema->createTable($users);
+
+            $this->container['db']->insert('messages', array(
+              'ffrom' => 'titi',
+              'tto' => 'admin',
+              'message' => 'Hey admin, tu pensais que’c’était ça que c’tait?'
+            ));
+
+            $this->container['db']->insert('messages', array(
+              'ffrom' => 'admin',
+              'tto' => 'titi',
+              'message' => 'Oui mais c’était pas ça que c’tait.'
             ));
         }
     }
