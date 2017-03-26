@@ -13,10 +13,7 @@ class DefaultController implements ControllerProviderInterface
 
         $controllers->get('/', function (Application $app) {
 
-            return $app['twig']->render('index.html.twig', array(
-                'error'         => $app['security.last_error']($request),
-                'last_username' => $app['session']->get('_security.last_username'),
-            ));
+            return $app->redirect('/main');
         });
 
         $controllers->get('/login', function (Application $app, Request $request) {
@@ -27,10 +24,20 @@ class DefaultController implements ControllerProviderInterface
             ));
         });
 
+        $controllers->post('/register', function (Application $app, Request $request) {
+            
+        });
+
         $controllers->get('/main', function (Application $app) {
-            return $app['twig']->render('main.html.twig', [
-                'username' => 'dummy'      // TODO change for real username
-            ]);
+            $token = $app['security.token_storage']->getToken();
+
+            if (null !== $token) {
+                $user = $token->getUser();
+                return $app['twig']->render('main.html.twig', [
+                    'username' => $user->getUsername(),
+                ]);
+            }
+            return $app->redirect('/login');
         });
 
         return $controllers;

@@ -92,7 +92,8 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
             'users' => function () use ($app) {
                 return new UserProvider($app['db']);
-            }
+            },
+            'logout' => array('logout_path' => '/logout', 'invalidate_session' => true),
         ),
     )
 ));
