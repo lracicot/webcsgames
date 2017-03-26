@@ -25,7 +25,12 @@ class DefaultController implements ControllerProviderInterface
         });
 
         $controllers->post('/register', function (Application $app, Request $request) {
-            
+            $app['db']->insert('users', [
+                'username' => $request->request->get('uname'),
+                'password' => $request->request->get('pass'),
+                'roles' => 'ROLE_ADMIN'
+            ]);
+            return $app->redirect('/main');
         });
 
         $controllers->get('/main', function (Application $app) {

@@ -88,7 +88,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'pattern' => '^/login$',
         ),
         'secured' => array(
-            'pattern' => '^.*$',
+            'pattern' => '^(?!/register).*$',
             'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
             'users' => function () use ($app) {
                 return new UserProvider($app['db']);
