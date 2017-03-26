@@ -23,6 +23,12 @@ body {
   right: 5%;
 }
 
+.user {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+}
+
 .register-form {
   display: table-cell;
   vertical-align: middle;

@@ -16,6 +16,12 @@ class DefaultController implements ControllerProviderInterface
             ]);
         });
 
+        $controllers->get('/main', function (Application $app) {
+            return $app['twig']->render('main.html.twig', [
+                'username' => 'dummy'      // TODO change for real username
+            ]);
+        });
+
         return $controllers;
     }
 }
