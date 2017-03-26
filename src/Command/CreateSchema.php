@@ -42,6 +42,8 @@ class CreateSchema extends Command
             $users->addColumn('username', 'string', array('length' => 32));
             $users->addUniqueIndex(array('username'));
             $users->addColumn('password', 'string', array('length' => 255));
+            $users->addColumn('bio', 'string', array('length' => 255, 'notnull' => false));
+            $users->addColumn('picture', 'string', array('length' => 255, 'notnull' => false));
             $users->addColumn('roles', 'string', array('length' => 255));
 
             $schema->createTable($users);

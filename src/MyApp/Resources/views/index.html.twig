@@ -7,8 +7,8 @@
 <form  class="login-form" action="{{ path('login_check') }}" method="post">
     {{ error }}
     <input type="text" name="_username" value="{{ last_username }}" />
-    <input type="password" placeholder="User name" name="_password" value="" />
-    <input type="submit" placeholder="Password"  value="Log in" />
+    <input type="password" placeholder="User name" name="_password" value="" required />
+    <input type="submit" placeholder="Password"  value="Log in" required />
 </form>
 
 <div class="row">
@@ -16,8 +16,9 @@
     <h3>Not a member yet? Join the community!</h3>
 
  <form class="register-form" action="/register" method="post">
-   <input type="text" placeholder="User name" name="uname"> <br>
-   <input type="text" placeholder="Password" name="pass"> <br>
+   <input type="text" placeholder="User name" name="uname" required> <br>
+   <input type="text" placeholder="Password" name="pass" required> <br>
+   <input type="text" placeholder="Biographie" name="bio" required> <br>
    <input type="submit" value="Register">
  </form>
 </div>
