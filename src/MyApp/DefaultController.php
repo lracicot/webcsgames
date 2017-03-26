@@ -11,7 +11,9 @@ class DefaultController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/', function (Application $app) {
-            return $app['twig']->render('index.html.twig');
+            return $app['twig']->render('index.html.twig', [
+                'foo' => 'bar'
+            ]);
         });
 
         return $controllers;

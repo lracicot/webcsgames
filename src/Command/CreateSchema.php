@@ -48,7 +48,7 @@ class CreateSchema extends Command
 
             $this->container['db']->insert('users', array(
               'username' => 'admin',
-              'password' => '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a',
+              'password' => 'qwerty',
               'roles' => 'ROLE_ADMIN'
             ));
         }

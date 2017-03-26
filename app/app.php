@@ -7,6 +7,7 @@ date_default_timezone_set('America/Toronto');
 require_once BASEPATH.'/vendor/autoload.php';
 
 use MyApp\Security\UserProvider;
+use Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder;
 
 // Dotenv is a library that reads the `.env` file
 // to set environment variables. Those variables can
@@ -70,6 +71,11 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
         'url' => 'sqlite:///'.BASEPATH.'/data.db',
     ],
 ]);
+
+$app['security.default_encoder'] = function ($app) {
+    // Plain text (e.g. for debugging)
+    return new PlaintextPasswordEncoder();
+};
 
 $app['security.firewalls'] = array(
     'login' => array(
